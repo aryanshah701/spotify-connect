@@ -1,11 +1,11 @@
 const express = require('express');
 const request = require('request');
 const router = express.Router();
-const CLIENT_SECRET = require('../config/secret');
-const REDIRECT_URI = require('../config/id');
+const CLIENT_SECRET = require('../config/secret').secret;
+const CLIENT_ID = require('../config/id').id;
 
 // URL and Query Parameters
-const CLIENT_ID = '55aa22f2255c491292a71619bde59924';
+const REDIRECT_URI = 'http://localhost:9000/login/callback';
 const URL = 'https://accounts.spotify.com/authorize?';
 const AUTH_URL =
   URL +
