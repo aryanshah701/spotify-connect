@@ -7,16 +7,16 @@ import {
   respToTrackData,
   respToArtistData,
 } from '../utility/clean-data';
+import Login from '../components/Login';
 import TopArtists from '../components/TopArtists';
 import TopTracks from '../components/TopTracks';
 import AudioFeatures from '../components/AudioFeatures';
 
 // UI Imports
 import 'milligram';
-import Button from '@material-ui/core/Button';
 import '../App.css';
 
-const URL = 'http://localhost:9000/login';
+const SERVER_URL = 'http://localhost:9000/login';
 
 // User Dashboard
 function Home() {
@@ -187,36 +187,10 @@ function Home() {
   } else {
     return (
       <div>
-        <Login />
+        <Login url={SERVER_URL} />
       </div>
     );
   }
 }
 
-// Login Page
-function Login() {
-  return (
-    <div>
-      <div id="login-page" className="container">
-        <div className="row">
-          <div className="column">
-            <h1>Login Page</h1>
-          </div>
-        </div>
-        <div className="row" id="login-button">
-          <div className="column">
-            <Button
-              onClick={() => (window.location.href = URL)}
-              size="large"
-              variant="contained"
-              color="primary"
-            >
-              Login
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 export default Home;
