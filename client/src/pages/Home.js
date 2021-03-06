@@ -6,9 +6,10 @@ import {
   respToAudioFeatures,
   respToTrackData,
   respToArtistData,
-} from '../clean-data';
-import TopArtists from '../TopArtists';
-import TopTracks from '../TopTracks';
+} from '../utility/clean-data';
+import TopArtists from '../components/TopArtists';
+import TopTracks from '../components/TopTracks';
+import AudioFeatures from '../components/AudioFeatures';
 
 // UI Imports
 import 'milligram';
@@ -17,6 +18,7 @@ import '../App.css';
 
 const URL = 'http://localhost:9000/login';
 
+// User Dashboard
 function Home() {
   const [state, setState] = useState({
     accessToken: '',
@@ -174,6 +176,12 @@ function Home() {
             <TopArtists artists={state.artistData} />
           </div>
         </div>
+        <div className="row">
+          <div className="column">
+            {console.log(state.artistData)}
+            <AudioFeatures artists={state.audioFeatures} />
+          </div>
+        </div>
       </div>
     );
   } else {
@@ -185,6 +193,7 @@ function Home() {
   }
 }
 
+// Login Page
 function Login() {
   return (
     <div>
