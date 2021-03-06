@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Box from '@material-ui/core/Box';
@@ -39,7 +38,6 @@ const useStyles = makeStyles({
     maxWidth: 200,
     minHeight: 250,
     flex: 1,
-    //backgroundColor: '#1DB954',
     backgroundColor: '#191414',
     color: 'white',
     fontWeight: 'fontWeightBold !important',

@@ -35,25 +35,27 @@ function Home() {
       // Getting the access token from the url parems
       let parsedAccessToken = queryString.parse(window.location.search)
         .access_token;
-      console.log(parsedAccessToken);
+
+      // Ensuring access token exists
       if (parsedAccessToken && parsedAccessToken != '') {
         setState({
           ...state,
           signedIn: true,
           accessToken: parsedAccessToken,
         });
-        return 'success';
       }
     } else {
-      // Fetch SPOTIFY track and artist data
-      getArtists()
-        .then((msg) => {
-          console.log('2');
-          getTracks();
-        })
-        .then((msg) => console.log(msg));
+      // Fetch artist data
+      getArtists();
     }
   }, [state.signedIn]);
+
+  // Get the track data once the artist data has been fetched
+  useEffect(() => {
+    if (state.artistData != []) {
+      getTracks();
+    }
+  }, [state.artistData]);
 
   // Get the audio features once the track data has been fetched
   useEffect(() => {
@@ -66,6 +68,8 @@ function Home() {
   async function getArtists() {
     const url = 'https://api.spotify.com/v1/me/top/artists';
     const token = 'Bearer ' + accessToken;
+
+    // Make fetch request for artists
     fetch(url, {
       method: 'GET',
       headers: {
@@ -74,15 +78,12 @@ function Home() {
     })
       .then((response) => response.json())
       .then((responseData) => {
+        // Transform the data and update state
         let transformedData = respToArtistData(responseData);
-        console.log('Gotten artists');
-        console.log(transformedData);
-        if (transformedData)
-          setState({
-            ...state,
-            artistData: transformedData,
-          });
-        return 'success';
+        setState({
+          ...state,
+          artistData: transformedData,
+        });
       })
       .catch((err) => console.log('oops ' + err));
   }
@@ -92,6 +93,7 @@ function Home() {
     const url = 'https://api.spotify.com/v1/me/top/tracks';
     const token = 'Bearer ' + accessToken;
 
+    // Make fetch request for tracks
     fetch(url, {
       method: 'GET',
       headers: {
@@ -100,9 +102,8 @@ function Home() {
     })
       .then((response) => response.json())
       .then((responseData) => {
+        // Transform the data and update state
         let transformedData = respToTrackData(responseData);
-        console.log('Gotten tracks');
-        console.log(transformedData);
         setState({
           ...state,
           trackData: transformedData,
@@ -124,7 +125,7 @@ function Home() {
       'https://api.spotify.com/v1/audio-features?ids=' + ids.join(',');
     const token = 'Bearer ' + accessToken;
 
-    // Fetching
+    // Make fetch request for audio features
     fetch(url, {
       method: 'GET',
       headers: {
@@ -133,8 +134,8 @@ function Home() {
     })
       .then((response) => response.json())
       .then((responseData) => {
+        // Transform the data and update state
         let transformedData = respToAudioFeatures(responseData);
-        console.log('Gotten audio features');
         console.log(transformedData);
         setState({
           ...state,
@@ -169,6 +170,7 @@ function Home() {
         </div>
         <div className="row">
           <div className="column">
+            {console.log(state.artistData)}
             <TopArtists artists={state.artistData} />
           </div>
         </div>
