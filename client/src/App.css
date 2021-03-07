@@ -1,3 +1,17 @@
+::-webkit-scrollbar {
+  width: 0.1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #191414;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
 html body {
   background-color: #191414;
   color: white !important;

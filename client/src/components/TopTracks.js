@@ -38,8 +38,10 @@ const useStyles = makeStyles({
     maxWidth: 200,
     minHeight: 250,
     flex: 1,
-    backgroundColor: '#191414',
-    color: 'white',
+    // backgroundColor: '#191414',
+    backgroundColor: 'white',
+    // color: 'white',
+    color: '#1DB954',
     fontWeight: 'fontWeightBold !important',
   },
   name: {
