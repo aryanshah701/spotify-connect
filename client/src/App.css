@@ -24,6 +24,16 @@ h1 {
   text-align: center;
 }
 
+.column {
+  padding: 0;
+  margin: 0;
+}
+
+.graph {
+  text-align: center;
+  margin: auto;
+}
+
 .row {
   margin: 1em 0em;
 }

@@ -16,8 +16,6 @@ import AudioFeatures from '../components/AudioFeatures';
 import 'milligram';
 import '../App.css';
 
-const SERVER_URL = 'http://localhost:9000/login';
-
 // User Dashboard
 function Home() {
   const [state, setState] = useState({
@@ -179,7 +177,7 @@ function Home() {
         <div className="row">
           <div className="column">
             {console.log(state.artistData)}
-            <AudioFeatures artists={state.audioFeatures} />
+            <AudioFeatures audioFeatures={state.audioFeatures} />
           </div>
         </div>
       </div>
@@ -187,7 +185,7 @@ function Home() {
   } else {
     return (
       <div>
-        <Login url={SERVER_URL} />
+        <Login />
       </div>
     );
   }

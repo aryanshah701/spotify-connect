@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-export default function Login(props) {
-  const { url } = props;
+const SERVER_URL = 'http://localhost:9000/login';
 
+export default function Login() {
   return (
     <div>
       <div id="login-page" className="container">
@@ -15,7 +15,7 @@ export default function Login(props) {
         <div className="row" id="login-button">
           <div className="column">
             <Button
-              onClick={() => (window.location.href = URL)}
+              onClick={() => (window.location.href = SERVER_URL)}
               size="large"
               variant="contained"
               color="primary"
