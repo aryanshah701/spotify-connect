@@ -170,13 +170,11 @@ function Home() {
         </div>
         <div className="row">
           <div className="column">
-            {console.log(state.artistData)}
             <TopArtists artists={state.artistData} />
           </div>
         </div>
         <div className="row">
           <div className="column">
-            {console.log(state.artistData)}
             <AudioFeatures audioFeatures={state.audioFeatures} />
           </div>
         </div>

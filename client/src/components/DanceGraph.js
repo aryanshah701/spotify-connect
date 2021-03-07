@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 import { histogram } from '../utility/graphs';
 
@@ -26,7 +27,7 @@ export default function DanceGraph(props) {
   return (
     <div class="row">
       <div class="column">
-        <Bar
+        <Line
           data={{
             labels: binLabels,
             datasets: [
