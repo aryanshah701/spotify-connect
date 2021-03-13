@@ -1,0 +1,32 @@
+# GET USERS
+GET http://localhost:9000/api/v1/users/
+
+###
+
+# GET USER
+GET http://localhost:9000/api/v1/users/id
+
+###
+
+# CREATE USER
+POST http://localhost:9000/api/v1/users/
+Content-Type: application/json
+
+{
+  "name": "Aryan"
+}
+
+###
+
+# UPDATE USER
+PATCH http://localhost:9000/api/v1/users/604d15555c2d92afb5bdadf0
+Content-Type: application/json
+
+{
+  "name": "Aryan New"
+}
+
+###
+
+# DELETE USER
+DELETE http://localhost:9000/api/v1/users/id

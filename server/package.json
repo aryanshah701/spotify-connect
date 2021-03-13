@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "nodemon": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,8 +13,13 @@
     "fontsource-roboto": "^4.0.0",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
+    "mongoose": "^5.12.0",
     "morgan": "~1.9.1",
     "querystring": "^0.2.1",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
   }
 }
