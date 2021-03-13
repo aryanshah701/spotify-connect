@@ -6,7 +6,6 @@
 export function respToAudioFeatures(response) {
   let transformedData = [];
   if (response) {
-    console.log(response);
     for (let audioFeature of response.audio_features) {
       let newAudioFeature = {
         energy: audioFeature.energy,
@@ -17,6 +16,7 @@ export function respToAudioFeatures(response) {
       transformedData.push(newAudioFeature);
     }
   }
+  console.log(transformedData);
   return transformedData;
 }
 
@@ -31,13 +31,12 @@ export function respToTrackData(response) {
         image: track.album.images[0].url,
         url: track.external_urls.spotify,
         album: track.album.name,
-        id: track.id,
+        trackId: track.id,
       };
-
       transformedData.push(newTrack);
     }
   }
-
+  console.log(transformedData);
   return transformedData;
 }
 
@@ -52,12 +51,12 @@ export function respToArtistData(response) {
         image: artist.images[2],
         popularity: artist.popularity,
         url: artist.external_urls.spotify,
-        id: artist.id,
+        artistId: artist.id,
       };
 
       transformedData.push(newArtist);
     }
   }
-
+  console.log(transformedData);
   return transformedData;
 }

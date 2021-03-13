@@ -13,7 +13,48 @@ POST http://localhost:9000/api/v1/users/
 Content-Type: application/json
 
 {
-  "name": "Aryan"
+  "name": "Aryan",
+  "artists": [
+    {
+      "name": "Juice World",
+      "image": {
+        "height": 160,
+        "width": 160,
+        "url": "juiceworld.jpg"
+      },
+      "url": "juiceworld.com",
+      "popularity": 80,
+      "artistId": "juiceworld id"
+    },
+    {
+      "name": "Juice World 2",
+      "image": {
+        "height": 160,
+        "width": 160,
+        "url": "juiceworld2.jpg"
+      },
+      "url": "juiceworld2.com",
+      "popularity": 100,
+      "artistId": "juiceworld id2"
+    }
+  ],
+  "tracks": [
+    {
+      "name": "Hate the other side",
+      "image": "song.jpg",
+      "url": "song.com",
+      "album": "ALBUM",
+      "trackId": "song's track id"
+    }
+  ],
+  "features": [
+    {
+      "energy": 10,
+      "valence": 20,
+      "dancebility": 30,
+      "liveness": 40
+    }
+  ]
 }
 
 ###
@@ -29,4 +70,4 @@ Content-Type: application/json
 ###
 
 # DELETE USER
-DELETE http://localhost:9000/api/v1/users/id
+DELETE http://localhost:9000/api/v1/users/604d15555c2d92afb5bdadf0

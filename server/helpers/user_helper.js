@@ -14,6 +14,17 @@ exports.getUsers = async (_req, res) => {
 // Create a single user
 exports.createUser = async (req, res) => {
   const user = new User({ name: req.body.name });
+
+  // Add the artists
+  user.spotifyData.artists = req.body.artists;
+
+  // Add the tracks
+  user.spotifyData.tracks = req.body.tracks;
+
+  // Add the audio features
+  user.spotifyData.features = req.body.features;
+
+  // Save off the new user
   try {
     const newUser = await user.save();
     res.status(201).json(newUser);

@@ -117,7 +117,7 @@ function Home() {
     // Get ids of top songs
     let ids = [];
     if (state.trackData != []) {
-      ids = state.trackData.map((track) => track.id);
+      ids = state.trackData.map((track) => track.trackId);
     }
 
     // API endpoint to get audio features
