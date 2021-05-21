@@ -1,3 +1,3 @@
 # Spotify Connect
 
-In production.
+In development.
